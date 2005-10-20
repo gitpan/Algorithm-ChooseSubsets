@@ -14,7 +14,7 @@ use strict;
 use warnings;
 use Carp;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 NAME
 
@@ -144,7 +144,7 @@ sub next {
     $p-- while ($p > 0 && $c->[$p] == $n-$k+$p);
 
     # Change that position, and all subsequent ones.
-    @$c[$p..$k-1] = ($c->[$p]+1 .. $c->[$p]+1 + $k-$p);
+    @$c[$p..$k-1] = ($c->[$p]+1 .. $c->[$p] + $k-$p);
 
     # Set the internal state, and return the values.
     $self->{'_c'} = $c;
